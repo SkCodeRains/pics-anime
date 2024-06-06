@@ -1,0 +1,30 @@
+<button *ngIf="show" class="close-modal btnn btn-icon btn-secondary position-fixed top-0 end-0  mt-2 mx-2  "
+    (click)="showCarousel()">X</button>
+
+
+<div #imagesContainer class=" images-container position-absolute top-0" [ngClass]="{'overflow-hidden':show}">
+    @for (item of collections.files; track $index) {
+    <div class="overflow-hidden p-1  image-container">
+        <img [src]="item" class="h-100 w-100" style="object-fit: contain;" alt="" (click)="showSlider($index)">
+    </div>
+    }
+</div>
+
+
+
+<div *ngIf="show" style="z-index: 9999;" class="position-fixed   top-0  mt-2 mx-2  ">
+    <img src="assets/png/play.png" [ngClass]="{'opacity-50':intervals>0}" style="width: 6rem; height: 6rem;" (click)="intervals=5000">
+</div>
+
+
+<ngb-carousel #carousel (slide)="onSlideChange($event)" [interval]="intervals" [showNavigationIndicators]="false"
+    [activeId]="''+index" [pauseOnFocus]="false" [wrap]="true"
+    class="overflow-hidden ngb-carousel vw-100 position-fixed" *ngIf="show">
+    @for (item of collections.files; track $index) {
+    <ng-template ngbSlide [id]="$index+''">
+        <div class="picsum-img-wrapper d-flex justify-content-center align-items-center vh-100">
+            <img [src]="item" alt="Random first slide" class="full-image p-3" />
+        </div>
+    </ng-template>
+    }
+</ngb-carousel>

@@ -1,0 +1,45 @@
+<ng-template #content let-modal class="bg-danger" modalDialogClass>
+    <div class="modal-header">
+        <h4 class="modal-title">More Pages</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div ngbAccordion>
+
+            @if (categories){
+            @for (item of catgoriesTypes; track $index) {
+            <div ngbAccordionItem [collapsed]="false">
+                <h2 ngbAccordionHeader>
+                    <button ngbAccordionButton class="bg-secondary  text-white">
+                        <span>&#9733; <b>{{item}}</b> &#9733;</span>
+                    </button>
+                </h2>
+                <div ngbAccordionCollapse>
+                    <div ngbAccordionBody class="d-flex bg-dark text-white flex-wrap gap-1">
+                        <ng-template>
+                            @for (type of categories[item]; track $index) {
+                            <button [innerText]="type" class="btnn  text-white btn"
+                                [ngClass]="{'btn-active':url==item+'/'+type}"
+                                (click)="getImages(item+'/'+type,modal)">
+
+                            </button>
+                            }
+
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            }
+            }
+
+
+
+        </div>
+    </div>
+    <div class="modal-footer pos">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+
+<button (click)="openVerticallyCentered(content)"
+    class=" close-modal open-modal-btn btnn position-fixed top-0 end-0 mt-2 mx-2">Filter</button>

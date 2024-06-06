@@ -1,0 +1,47 @@
+.dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+}
+
+.dark-modal .close {
+    color: white;
+}
+
+.light-blue-backdrop {
+    background-color: #5cb3fd;
+}
+
+.open-modal-btn {
+    z-index: 9999;
+}
+
+.close-modal {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    font-size: 2rem;
+    z-index: 9999;
+    line-height: 0 !important;
+    text-align: center;
+}
+
+.modal-body {
+    height: 80vh;
+}
+
+.btn {
+    width: 5rem;
+}
+
+::ng-deep ngb-modal-window .modal-content {
+    /* Add your custom styles here */
+    background-color: #fff;
+    /* Example background color */
+    border-radius: 8px;
+    /* Example border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    /* Example box shadow */
+}
+.btn-active{
+    background-color: #0d6efd !important;
+}

@@ -1,0 +1,36 @@
+::ng-deep {
+
+    .carousel-control-next,
+    .carousel-control-prev {
+        span {
+            background-color: blueviolet;
+        }
+    }
+
+    .full-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.close-modal {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    font-size: 4rem;
+    z-index: 9999;
+    line-height: 0;
+}
+
+.images-container {
+    column-count: 4;
+    line-height: 0;
+    column-gap: 0;
+
+    .image-container {
+        img {
+            border-radius: 1rem;
+        }
+    }
+}
