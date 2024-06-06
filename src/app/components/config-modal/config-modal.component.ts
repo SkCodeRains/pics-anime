@@ -43,4 +43,8 @@ export class ConfigModalComponent {
     this.loadImages.emit(url);
     modal.close();
   }
+
+  get nsfwAllowed(): boolean {
+    return localStorage.getItem("nsfwAllowed") === "allowed" ? true : false
+  }
 }

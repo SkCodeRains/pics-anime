@@ -8,6 +8,7 @@
 
             @if (categories){
             @for (item of catgoriesTypes; track $index) {
+            @if(item!=='nsfw' || nsfwAllowed){
             <div ngbAccordionItem [collapsed]="false">
                 <h2 ngbAccordionHeader>
                     <button ngbAccordionButton class="bg-secondary  text-white">
@@ -19,8 +20,7 @@
                         <ng-template>
                             @for (type of categories[item]; track $index) {
                             <button [innerText]="type" class="btnn  text-white btn"
-                                [ngClass]="{'btn-active':url==item+'/'+type}"
-                                (click)="getImages(item+'/'+type,modal)">
+                                [ngClass]="{'btn-active':url==item+'/'+type}" (click)="getImages(item+'/'+type,modal)">
 
                             </button>
                             }
@@ -29,6 +29,7 @@
                     </div>
                 </div>
             </div>
+            }
             }
             }
 
